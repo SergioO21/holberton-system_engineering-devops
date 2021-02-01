@@ -1,2 +1,2 @@
 #!/bin/bash
-tar Ac Ze
+tr Ac Ze
