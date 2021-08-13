@@ -21,4 +21,7 @@ Welcome to the Holberton School's System Engineering Devops repository where I'l
 | **[0x06. Ruby - Regular expressions](./0x06-regular_expressions)**                              | *Regular expressions applied in Ruby.*          |
 | **[0x07. Bash - Networking basics](./0x07-networking_basics)**                                  | *Networking basics.*                            |
 | **[0x08. Bash - Networking basics 2](./0x08-networking_basics_2)**                              | *Networking basics 2.*                          |
+| **[0x09. WhiteBoarding - Web Infrastructure_Design](./0x09-web_infrastructure_design)**         | *Web infrastructure design.*                    |
+| **[0x0A. Puppet - Configuration Management](./0x0A-configuration_management)**                  | *Configuration management.*                     |
+| **[0x0B. Bash - SSH](./0x0B-ssh)**                                                              | *SSH.*                                          |
 | **[Optional. Bash - Command Line For The Win](./command_line_for_the_win)**                     | *CMD Challenge.*                                |
