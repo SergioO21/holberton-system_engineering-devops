@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+-- Connect to your server using the private key ~/.ssh/holberton with the user ubuntu.
+
+eval $(ssh-agent)
+ssh-add ~/.ssh/holberton
+ssh ubuntu@35.196.199.248
