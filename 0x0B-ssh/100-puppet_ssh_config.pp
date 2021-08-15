@@ -4,11 +4,11 @@
 file_line { 'Remove authentications':
   ensure => 'present',
   path   => 'etc/ssh/ssh_config',
-  match  => '   PasswordAuthentication no'
+  match  => 'PasswordAuthentication no'
 }
 
 file_line { 'Use private key':
   ensure => 'present',
   path   => 'etc/ssh/ssh_config',
-  line   => '   IdentityFile ~/.ssh/holberton'
+  line   => 'IdentityFile ~/.ssh/holberton'
 }
