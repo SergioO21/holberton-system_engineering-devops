@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Install nginx web server
+
+sudo apt update
+sudo apt -y install nginx
+echo "Holberton School" > index.html
+sudo mv index.html /var/www/html/
+
+sudo sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.linkedin.com/in/sergio-or/ permanent;' /etc/nginx/sites-available/default
+
+sudo service nginx restart
