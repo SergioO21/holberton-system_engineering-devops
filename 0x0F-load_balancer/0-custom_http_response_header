@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Install nginx web server
+
+sudo apt update
+sudo apt -y install nginx
+ufw allow 'Nginx HTTP'
+
+# Index page.
+echo "Holberton School" > index.html
+sudo mv index.html /var/www/html/
+
+# Error 404 page.
+echo "Ceci n'est pas une page" > error404.html
+sudo mv error404.html /var/www/html/
+
+# Redirection page.
+sudo sed -i "/listen \[::\]:80/a \\\trewrite ^/redirect_me https://www.linkedin.com/in/sergio-or/ permanent;" /etc/nginx/sites-available/default
+
+# Error 404 page.
+sudo sed -i "/listen \[::\]:80/a \\\terror_page 404 /error404.html;" /etc/nginx/sites-available/default
+
+# Adding custom header.
+sudo sed -i "/listen \[::\]:80/a \\\tadd_header X-Served-By $(hostname);" /etc/nginx/sites-available/default
+
+sudo service nginx restart
