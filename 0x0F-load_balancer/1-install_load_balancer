@@ -14,8 +14,7 @@ backend="\n\
 backend h_backend\n\
     balance roundrobin\n\
     server 2691-web-01 35.196.199.248:80 check\n\
-    server 2691-web-02 3.88.139.97:80 check\n\
-    option httpchk"
+    server 2691-web-02 3.88.139.97:80 check"
 
 sudo echo -e "$frontend \n $backend" >> /etc/haproxy/haproxy.cfg
 
