@@ -25,5 +25,7 @@ Welcome to the Holberton School's System Engineering Devops repository where I'l
 | **[0x0A. Puppet - Configuration Management](./0x0A-configuration_management)**                  | *Configuration management.*                     |
 | **[0x0B. Bash - SSH](./0x0B-ssh)**                                                              | *SSH.*                                          |
 | **[0x0C. Web server](./0x0C-web_server)**                                                       | *Web server.*                                   |
-| **[0x0D. Docker - Web stack debugging #0](./0x0D-web_stack_debugging_0)**                       | *Web stack debugging #0.*                       |
+| **[0x0D. Bash - Web stack debugging #0](./0x0D-web_stack_debugging_0)**                         | *Web stack debugging #0.*                       |
+| **[0x0E. Bash - Web stack debugging #1](./0x0E-web_stack_debugging_1)**                         | *Web stack debugging #1.*                       |
+| **[0x0F. Bash - Load Balancer](./0x0F-load_balancer)**                                          | *Load balancer.*                                |
 | **[Optional. Bash - Command Line For The Win](./command_line_for_the_win)**                     | *CMD Challenge.*                                |
