@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Install the ufw firewall and setup a few rules.
+
+# Update apt-get and install ufw.
+sudo apt-get update
+sudo apt-get install ufw
+
+# Blocks all incoming traffic.
+sudo ufw default deny incoming
+
+# Allow incoming traffic from SSH, HTTPS and HTTP ports respectively.
+sudo ufw allow 22
+sudo ufw allow 443
+sudo ufw allow 80
+
+sudo ufw enable
