@@ -16,7 +16,7 @@ def main():
     EMPLOYEE_NAME = requests.get(
         "{}/users/{}".format(url, argv[1])).json()["name"]
 
-    print("Employee {} is done with tasks({}/{})".format(
+    print("Employee {} is done with tasks({}/{}):".format(
         EMPLOYEE_NAME, len(NUMBER_OF_DONE_TASKS), TOTAL_NUMBER_OF_TASKS))
 
     for task in NUMBER_OF_DONE_TASKS:
