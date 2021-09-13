@@ -1,11 +1,12 @@
 #!/usr/bin/python3
+""" Using a REST API """
 
 from sys import argv
 import requests
 
 
 def main():
-    """  """
+    """ Returns information about his/her TODO list progress. """
     url = "https://jsonplaceholder.typicode.com"
 
     task_list = requests.get("{}/todos?userId={}".format(url, argv[1])).json()
