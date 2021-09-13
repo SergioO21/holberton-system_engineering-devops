@@ -9,24 +9,18 @@ def main():
     """ Returns information about his/her TODO list progress. """
     url = "https://jsonplaceholder.typicode.com"
 
-    task_list = requests.get("{}/todos?userId={}".format(url, argv[1])).json()
-
-    EMPLOYEE_NAME = requests.get("{}/users/{}".format(url, argv[1]))
-    EMPLOYEE_NAME = EMPLOYEE_NAME.json()["name"]
-    NUMBER_OF_DONE_TASKS = 0
-    TOTAL_NUMBER_OF_TASKS = 0
-
-    for task in task_list:
-        if task["completed"]:
-            NUMBER_OF_DONE_TASKS += 1
-        TOTAL_NUMBER_OF_TASKS += 1
+    TOTAL_NUMBER_OF_TASKS = len(
+        requests.get("{}/todos?userId={}".format(url, argv[1])).json())
+    NUMBER_OF_DONE_TASKS = requests.get(
+        "{}/todos?userId={}&completed=true".format(url, argv[1])).json()
+    EMPLOYEE_NAME = requests.get(
+        "{}/users/{}".format(url, argv[1])).json()["name"]
 
     print("Employee {} is done with tasks({}/{})".format(
-        EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
+        EMPLOYEE_NAME, len(NUMBER_OF_DONE_TASKS), TOTAL_NUMBER_OF_TASKS))
 
-    for task in task_list:
-        if task["completed"]:
-            print("\t {}".format(task["title"]))
+    for task in NUMBER_OF_DONE_TASKS:
+        print("\t {}".format(task["title"]))
 
 
 if __name__ == "__main__":
