@@ -7,9 +7,9 @@ from sys import argv
 
 if __name__ == '__main__':
     url = 'https://jsonplaceholder.typicode.com/'
-    e_id = argv[1]
-    user = requests.get(url + 'users/' + e_id).json()
-    tasks = requests.get(url + 'todos/', params={'userId': e_id}).json()
+    u_id = argv[1]
+    user = requests.get(url + 'users/' + u_id).json()
+    tasks = requests.get(url + 'todos/', params={'userId': u_id}).json()
     name = user.get("name")
 
     complete_task = 0
