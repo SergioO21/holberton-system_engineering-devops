@@ -6,7 +6,7 @@ from sys import argv
 
 
 def main():
-    """ Returns information about his/her TODO list progress. """
+    """ Returns information about his/her TODO list progress """
     url = "https://jsonplaceholder.typicode.com"
 
     TOTAL_NUMBER_OF_TASKS = len(
