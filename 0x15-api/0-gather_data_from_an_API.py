@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Using a REST API """
 
-from sys import argv
 import requests
+from sys import argv
 
 
 def main():
