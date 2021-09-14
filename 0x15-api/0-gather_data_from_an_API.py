@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-""" Using a REST API """
+""" Returns information about his/her TODO list progress. """
 
 import requests
 from sys import argv
 
 
-def main():
-    """ Returns information about his/her TODO list progress. """
+if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
 
     TOTAL_NUMBER_OF_TASKS = len(
@@ -22,7 +21,3 @@ def main():
 
     for task in NUMBER_OF_DONE_TASKS:
         print("\t {}".format(task["title"]))
-
-
-if __name__ == "__main__":
-    main()
