@@ -12,10 +12,6 @@ def main():
 
     TOTAL_NUMBER_OF_TASKS = requests.get(
         "{}/todos?userId={}".format(url, argv[1])).json()
-    NUMBER_OF_DONE_TASKS = len(requests.get(
-        "{}/todos?userId={}&completed=true".format(url, argv[1])).json())
-    EMPLOYEE_NAME = requests.get(
-        "{}/users/{}".format(url, argv[1])).json()["name"]
     USERNAME = requests.get(
         "{}/users/{}".format(url, argv[1])).json()["username"]
 
