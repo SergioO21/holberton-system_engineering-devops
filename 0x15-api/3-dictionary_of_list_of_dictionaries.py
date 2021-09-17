@@ -1,28 +1,31 @@
 #!/usr/bin/python3
-"""Dictionary of list of dictionaries"""
+""" Export data in the JSON format """
+
 import json
 import requests
 
 
+def main():
+    """ Returns information about his/her TODO list progress """
+    url = "https://jsonplaceholder.typicode.com"
+
+    users = requests.get("{}/users/".format(url)).json()
+    task_list = {}
+
+    for user in users:
+        user_id = user["id"]
+        task_list[user_id] = []
+        all_task = requests.get(
+                "{}/todos/?userId={}".format(url, user_id)).json()
+
+        for task in all_task:
+            task_list[user_id].append({"username": user["username"],
+                "task": task["title"],
+                "completed": task["completed"]})
+
+    with open("todo_all_employees.json", "w") as file:
+        json.dump(task_list, file)
+
+
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    counter = len(requests.get(url + "users").json())
-    data = {}
-    full_data = {}
-    for i in range(0, counter):
-        user = requests.get(url + "users/" + str(i + 1))
-        todo_keys = {"userId": str(i + 1)}
-        tasks = requests.get("{}todos".format(url), params=todo_keys)
-        employee_name = user.json().get("username")
-        l_dict = []
-
-        for task in tasks.json():
-            l_dict.append(dict(task=task.get("title"),
-                               completed=task.get("completed"),
-                               username=employee_name))
-
-        data = {(i+1): l_dict}
-        full_data.update(data)
-
-        with open('todo_all_employees.json', 'w') as file:
-            json.dump(full_data, file)
+    main()
