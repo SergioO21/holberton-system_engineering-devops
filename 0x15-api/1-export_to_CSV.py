@@ -24,7 +24,7 @@ def main():
     for task in TOTAL_NUMBER_OF_TASKS:
         task_list.append([argv[1], USERNAME, task["completed"], task["title"]])
 
-    with open("USER_ID.csv", "w") as file:
+    with open("{}.csv".format(argv[1]), "w") as file:
         writer = csv.writer(file, delimiter=',',
                             quotechar='"', quoting=csv.QUOTE_ALL)
 
