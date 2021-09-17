@@ -19,15 +19,9 @@ def main():
     USERNAME = requests.get(
         "{}/users/{}".format(url, argv[1])).json()["username"]
 
-    print("Employee {} is done with tasks({}/{}):".format(
-        EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, len(TOTAL_NUMBER_OF_TASKS)))
-
     task_list = []
 
     for task in TOTAL_NUMBER_OF_TASKS:
-        if task["completed"]:
-            print("\t {}".format(task["title"]))
-
         task_list.append([argv[1], USERNAME, task["completed"], task["title"]])
 
     with open("USER_ID.csv", "w") as file:
