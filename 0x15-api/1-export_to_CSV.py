@@ -19,13 +19,16 @@ def main():
     USERNAME = requests.get(
         "{}/users/{}".format(url, argv[1])).json()["username"]
 
+    task_list = []
+    for task in TOTAL_NUMBER_OF_TASKS:
+        task_list.append([argv[1], USERNAME, task["completed"], task["title"]])
+
     with open("{}.csv".format(argv[1]), "w") as file:
         writer = csv.writer(file, delimiter=',',
                             quotechar='"', quoting=csv.QUOTE_ALL)
 
-        for task in TOTAL_NUMBER_OF_TASK:
-            writer.writerow(
-                    [argv[1], USERNAME, task["completed"], task["title"]])
+        for row in task_list:
+            writer.writerow(row)
 
 
 if __name__ == "__main__":
