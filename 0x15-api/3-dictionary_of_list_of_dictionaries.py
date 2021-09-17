@@ -19,9 +19,11 @@ def main():
                 "{}/todos/?userId={}".format(url, user_id)).json()
 
         for task in all_task:
-            task_list[user_id].append({"username": user["username"],
+            task_list[user_id].append({
+                "username": user["username"],
                 "task": task["title"],
-                "completed": task["completed"]})
+                "completed": task["completed"]
+                })
 
     with open("todo_all_employees.json", "w") as file:
         json.dump(task_list, file)
