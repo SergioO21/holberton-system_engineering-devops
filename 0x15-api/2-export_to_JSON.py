@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-""" Export data in the CSV format """
+""" Export data in the JSON format """
 
-import csv
+import json
 import requests
 from sys import argv
 
@@ -19,13 +19,16 @@ def main():
     USERNAME = requests.get(
         "{}/users/{}".format(url, argv[1])).json()["username"]
 
-    with open("{}.csv".format(argv[1]), "w") as file:
-        writer = csv.writer(file, delimiter=',',
-                            quotechar='"', quoting=csv.QUOTE_ALL)
+    task_list = []
+    for task in TOTAL_NUMBER_OF_TASKS:
+        task_list.append({"task": task["title"],
+                          "completed": task["completed"],
+                          "username": USERNAME})
 
-        for task in TOTAL_NUMBER_OF_TASK:
-            writer.writerow(
-                    [argv[1], USERNAME, task["completed"], task["title"]])
+    task_list = {argv[1]: task_list}
+
+    with open("{}.json".format(argv[1]), "w") as file:
+        json.dump(task_list, file)
 
 
 if __name__ == "__main__":
