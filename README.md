@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://www.holbertonschool.com/">
-    <img src="https://www.holbertonschool.com/holberton-logo.png" alt="Holberton Logo"  target="_blank">
+    <img src="https://github.com/SergioO21/holbertonschool-low_level_programming/blob/main/holberton-logo.png?raw=true" alt="Holberton Logo"  target="_blank">
   </a>
 </div>
 
